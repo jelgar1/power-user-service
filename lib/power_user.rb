@@ -1,14 +1,13 @@
 require_relative 'criteria'
-require_relative 'user'
 require_relative 'scores'
-
+require_relative 'status'
 
 class PowerUser
 
-  def get_score(email)
+  def get_status(email)
     occurences = Criteria.new.look_up(email)
-    Scores.new.look_up(occurences)
-
+    scores = Scores.new.calculate_score(occurences)
+    return Status.new.calculate_status(scores)
   end
 
 end

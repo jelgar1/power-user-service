@@ -14,7 +14,7 @@ class Criteria
   def look_up(email)
     user_activity = UserActivity.new(email)
     occurences = {}
-    acceptance_criteria.each { |criteria| occurences[criteria] = (user_activity.list[criteria]) }
+    acceptance_criteria.each { |criteria| occurences[criteria] = (user_activity.list[email][criteria]) }
     return occurences
   end
 
