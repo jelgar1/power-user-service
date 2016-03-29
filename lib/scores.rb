@@ -14,7 +14,7 @@ class Scores
     occurences.each do |criteria, number|
       score += list[criteria] * number
     end
-    return score
+    score
   end
 
 end

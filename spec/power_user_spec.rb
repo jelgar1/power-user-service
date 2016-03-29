@@ -14,4 +14,20 @@ describe PowerUser do
       expect(power_user.get_status('joebloggs@gmail.com')).to eq('ACTIVE_USER')
     end
   end
+
+  describe '#calculate_status' do
+
+    it 'returns INACTIVE_USER when the score is less than 20' do
+      expect(power_user.calculate_status(PowerUser::MINIMUM_ACTIVE_USER-1)).to eq('INACTIVE_USER')
+    end
+
+    it 'returns ACTIVE_USER when score is in between 19 and 100' do
+      expect(power_user.calculate_status(PowerUser::MINIMUM_ACTIVE_USER)).to eq('ACTIVE_USER')
+    end
+
+    it 'returns SUPER_USER when score is above 99' do
+      expect(power_user.calculate_status(PowerUser::MINIMUM_SUPER_USER)).to eq('SUPER_USER')
+    end
+
+  end
 end
