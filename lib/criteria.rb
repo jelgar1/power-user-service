@@ -1,4 +1,4 @@
-require_relative 'user_activity'
+# require_relative 'user_activity'
 
 class Criteria
 
